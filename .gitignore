@@ -1,0 +1,7 @@
+node_modules/
+## Geralmente colocaria o .env para ignorar também, mas como é um teste com dados falsas manterei por praticidade
+#.env 
+
+## Arquivos JavaScript compilados
+**/*.js
+**/*.js.map
