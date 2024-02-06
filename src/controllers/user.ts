@@ -15,7 +15,7 @@ export class UserController{
         }
 
         try {
-            let user = new User(req.body)
+            let user = new User({...req.body, addressId: address?.dataValues.id})
             await user.save()
             res.json({...user.dataValues, address: {...address?.dataValues}})
         } catch (error) {
@@ -26,8 +26,9 @@ export class UserController{
 
     async route_getJSON(req: Request, res: Response) {
         const id = req.params.id
-        const user = await User.findByPk(id)
-        if (!user) return res.status(401).json({ res: "user not found", id })
+        let user
+        if (id) user = await User.findByPk(id)
+        user = await User.findAll()
         return res.json({ 
             user
         })
