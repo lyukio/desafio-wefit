@@ -7,7 +7,7 @@ import { crossDomain } from "../utils/crossDomain"
 import bodyParser from "body-parser"
 import db from "./db"
 
-export const app = express()
+const app = express()
 
 const port = process.env.PORT ?? 4568
 
